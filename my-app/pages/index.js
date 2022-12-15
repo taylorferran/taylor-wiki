@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <img src="/taylor.jpg" width="200" height="266.67"></img>
+        <img src="/taylorphoto.jpeg" width="200" height="266.67"></img>
         <h1 className={styles.title}>
            taylor ferran
         </h1>
