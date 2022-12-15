@@ -1,0 +1,30 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
+a {
+  text-decoration-color: white;
+  text-decoration: underline;
+}
+
+p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+b {
+  margin-top: 16px;
+  margin-bottom: 5px;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
