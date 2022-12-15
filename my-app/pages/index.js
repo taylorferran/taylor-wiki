@@ -18,7 +18,7 @@ export default function Home() {
         </h1>
 
         <b>about</b>
-          <p>I'm from Belfast Northern Ireland but currently I'm travelling around South East Asia.</p>
+          <p>I'm from Belfast Northern Ireland but currently I'm traveling around South East Asia.</p>
           <p>I'm currently looking out for Developer Relations roles, or any other relevant web3 position.</p>
           <p>I'm passionate about decentralisation, open source tech, and dope traditional blackwork tattoos!</p>
 
