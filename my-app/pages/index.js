@@ -34,6 +34,7 @@ export default function Home() {
         <a href="https://github.com/taylorferran" target="_blank">Github</a>
         <a href="https://www.linkedin.com/in/taylorferran/" target="_blank">LinkedIn</a>
         <a href="https://www.youtube.com/channel/UCTUKeaO8igoZ_1jddxfP1wA" target="_blank">Youtube</a>
+        <a href="https://medium.com/@taylor_web3" target="_blank">Medium</a>
       </main>
 
     </div>
