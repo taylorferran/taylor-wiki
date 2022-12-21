@@ -1,5 +1,5 @@
 * {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Unbounded', cursive;
 }
 
 
@@ -23,8 +23,10 @@ p {
 }
 
 b {
-  margin-top: 13px;
+  margin-top: 7px;
   margin-bottom: 5px;
+  font-size: 20px;
+  font-style: italic;
 }
 
 
@@ -36,4 +38,16 @@ b {
     color: white;
     background: black;
   }
+}
+
+
+h1 {
+  line-height: 1.15;
+  font-size: 2rem;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+img {
+  margin-bottom: 5px;
 }

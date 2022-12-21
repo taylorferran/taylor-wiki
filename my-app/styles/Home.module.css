@@ -11,10 +11,33 @@
 }
 
 
-.title {
-  line-height: 1.15;
-  font-size: 2rem;
-  margin-bottom: 10px;
+
+
+
+.btn {
+  line-height: 1;
+  font-size: 8rem;
+  font-weight: 900;
+  text-align: center;
+  width: 35rem;
+  margin: 0 auto;
+  font-variation-settings: 'wght' 100, 'wdth' 85;
+  animation: font-animation 4s infinite forwards cubic-bezier(0.48, 0.04, 0.52, 0.96);
+
+  @media screen and (max-width: 750px) {
+    font-size: 6rem;
+    width: 100%;
+  }
+}
+
+@keyframes font-animation {
+  60% {
+    font-variation-settings: 'wght' 900, 'wdth' 100;
+  }
+
+  100% {
+    font-variation-settings: 'wght' 100, 'wdth' 85;
+  }
 }
 
 
