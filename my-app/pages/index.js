@@ -43,7 +43,7 @@ export default function Home() {
           <p>I'm from Belfast, Northern Ireland but currently I'm traveling around South East Asia.</p>
           <p>I'm currently looking out for Developer Relations roles, or any other relevant web3 position.</p>
           <p>I'm passionate about decentralisation, open source tech, and dope traditional blackwork tattoos!</p>
-          <p>My newest project is Tattoo DAO which I'm currently trying to launch. You can view the litepaper<a href="https://drive.google.com/file/d/1-3mIhpyVuCEyyDH3FQnsb3ZZhtRQSbC2/view" target="_blank"> here.</a></p>
+          <p>My newest project is Tattoo DAO which I'm currently trying to launch. You can view the litepaper <a href="https://drive.google.com/file/d/1-3mIhpyVuCEyyDH3FQnsb3ZZhtRQSbC2/view" target="_blank">here.</a></p>
           <b>current</b>
           <p>Smart contracts @ <a href="https://twitter.com/nudeclubapp" target="_blank">Nude Club</a></p>
           <p>Technical Content Creation @ <a href="https://www.metaintro.com/" target="_blank">Metaintro</a></p>
