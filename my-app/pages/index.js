@@ -40,10 +40,11 @@ export default function Home() {
       <h1>taylor ferran</h1>
 
         <b>about</b>
-          <p>I'm from Belfast, Northern Ireland but currently I'm traveling around South East Asia.</p>
-          <p>I'm currently looking out for Developer Relations roles, or any other relevant web3 position.</p>
+          <p>I'm from Bangor, Northern Ireland and just finished traveling around South East Asia.</p>
+          <p>I was working as a Senior Software Engineer then decided to quit to pursue a career in the web3 space.</p> 
+          <p>I'm currently looking out for Developer Relations roles, or any other smart contract relevant web3 position.</p>
           <p>I'm passionate about decentralisation, open source tech, and dope traditional blackwork tattoos!</p>
-          <p>My newest project is Tattoo DAO which I'm currently trying to launch. You can view the litepaper <a href="https://drive.google.com/file/d/1-3mIhpyVuCEyyDH3FQnsb3ZZhtRQSbC2/view" target="_blank">here.</a></p>
+          <p>My newest project is Tattoo DAO which I'm currently in the process of launching. You can view the litepaper <a href="https://drive.google.com/file/d/1-3mIhpyVuCEyyDH3FQnsb3ZZhtRQSbC2/view" target="_blank">here.</a></p>
           <b>current</b>
           <p>Smart contracts @ <a href="https://twitter.com/nudeclubapp" target="_blank">Nude Club</a></p>
           <p>Technical Content Creation @ <a href="https://www.metaintro.com/" target="_blank">Metaintro</a></p>
@@ -55,7 +56,6 @@ export default function Home() {
         <a href="https://twitter.com/taylor_web3" target="_blank">Twitter</a>
         <a href="https://github.com/taylorferran" target="_blank">Github</a>
         <a href="https://www.linkedin.com/in/taylorferran/" target="_blank">LinkedIn</a>
-        <a href="https://www.youtube.com/channel/UCTUKeaO8igoZ_1jddxfP1wA" target="_blank">Youtube</a>
         <a href="https://medium.com/@taylor_web3" target="_blank">Medium</a>
         </motion.div >
 
