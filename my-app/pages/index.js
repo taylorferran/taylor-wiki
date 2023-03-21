@@ -40,16 +40,16 @@ export default function Home() {
       <h1>taylor ferran</h1>
 
         <b>about</b>
-          <p>I'm from Bangor, Northern Ireland and just finished traveling around South East Asia.</p>
+          <p>I'm living in Belfast, Northern Ireland.</p>
           <p>I was working as a Senior Software Engineer then decided to quit to pursue a career in the web3 space.</p> 
-          <p>I'm currently looking out for Developer Relations roles, or any other smart contract relevant web3 position.</p>
-          <p>I'm passionate about decentralisation, open source tech, and dope traditional blackwork tattoos!</p>
-          <p>My newest project is Tattoo DAO which I'm currently in the process of launching. You can view the litepaper <a href="https://drive.google.com/file/d/1-3mIhpyVuCEyyDH3FQnsb3ZZhtRQSbC2/view" target="_blank">here.</a></p>
+          <p>Now I'm working in Developer Relations for Etherspot!</p>
+          <p>I'm passionate about decentralisation, Dota 2, and dope traditional blackwork tattoos.</p>
           <b>current</b>
+          <p>Developer Relations @ <a href="https://etherspot.io" target="_blank">Etherspot</a></p>
           <p>Smart contracts @ <a href="https://twitter.com/nudeclubapp" target="_blank">Nude Club</a></p>
-          <p>Technical Content Creation @ <a href="https://www.metaintro.com/" target="_blank">Metaintro</a></p>
 
         <b>past</b>
+        <p>Technical Content Creation @ <a href="https://www.metaintro.com/" target="_blank">Metaintro</a></p>
         <p>Senior Software Engineer/Scrum Lead @  <a href="https://owmobility.com/" target="_blank">Enea Openwave</a></p>
 
         <b>links</b>
