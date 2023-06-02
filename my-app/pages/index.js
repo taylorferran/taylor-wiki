@@ -29,7 +29,7 @@ export default function Home() {
           setMovePic(!movePic);
         }}
       >
-        <img src="/taylorphoto.jpeg" width="170" height="220.67"></img>
+        <img src="/taylorpresent.JPG" width="320" height="220.67"></img>
       </motion.div>
       <motion.div className={styles.main}
         initial={{ opacity: 0, scale: 0.05 }}
