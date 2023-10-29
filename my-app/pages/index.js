@@ -20,23 +20,8 @@ export default function Home() {
 
       <main className={styles.main}>
 
-      <motion.div
-        animate={{
-                y: movePic ? 230 : 0,
-                scale: movePic ? 2.5 : 1,
-        }}
-        onClick={() => {
-          setMovePic(!movePic);
-        }}
-      >
-        <img src="/taylorpresent.JPG" width="320" height="220.67"></img>
-      </motion.div>
-      <motion.div className={styles.main}
-        initial={{ opacity: 0, scale: 0.05 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7 }}
-      
-      >
+        <img src="/taylor_ethldn.jpeg" width="400" height="220.67"></img>
+
       <h1>taylor ferran</h1>
 
         <b>about</b>
@@ -59,7 +44,6 @@ export default function Home() {
         <a href="https://steamcommunity.com/id/taylorferran" target="_blank">Steam</a>
         <a href="https://t.me/taylorferran" target="_blank">Telegram</a>
         <a href="https://medium.com/@taylor_web3" target="_blank">Medium</a>
-        </motion.div >
 
       </main>
 
