@@ -41,6 +41,7 @@ export default function Home() {
         <a href="https://github.com/taylorferran" target="_blank">Github</a>
         <a href="https://www.linkedin.com/in/taylorferran/" target="_blank">LinkedIn</a>
         <a href="https://steamcommunity.com/id/taylorferran" target="_blank">Steam</a>
+        <a href="https://twitch.tv/taylor_dota" target="_blank">Twitch</a>
         <a href="https://t.me/taylorferran" target="_blank">Telegram</a>
         <a href="https://medium.com/@taylor_web3" target="_blank">Medium</a>
 
