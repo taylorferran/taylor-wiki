@@ -37,7 +37,7 @@ export default function Home() {
         <p>Senior Software Engineer/Scrum Lead @  <a href="https://owmobility.com/" target="_blank">Enea Openwave</a></p>
 
         <b>links</b>
-        <a href="https://twitter.com/taylor_web3" target="_blank">Twitter</a>
+        <a href="https://twitter.com/taylorferran" target="_blank">Twitter</a>
         <a href="https://github.com/taylorferran" target="_blank">Github</a>
         <a href="https://www.linkedin.com/in/taylorferran/" target="_blank">LinkedIn</a>
         <a href="https://steamcommunity.com/id/taylorferran" target="_blank">Steam</a>
