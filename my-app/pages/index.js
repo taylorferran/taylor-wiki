@@ -1,12 +1,8 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { useState } from "react";
-import { motion } from "framer-motion";
-
+import { Analytics } from "@vercel/analytics/react"
 
 export default function Home() {
-
-  const [movePic, setMovePic] = useState(false);
 
   return (
     <div>
@@ -47,6 +43,7 @@ export default function Home() {
         <a href="https://discordapp.com/users/147012760394268672" target="_blank">Discord</a>
 
       </main>
+      <Analytics />
 
     </div>
   )
