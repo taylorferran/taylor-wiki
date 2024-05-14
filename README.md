@@ -1,1 +1,1 @@
-Basic info page. Built on next.js and hosted on vercel.
+Basic info page. Built on next.js and hosted on Vercel.
