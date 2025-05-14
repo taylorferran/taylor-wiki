@@ -21,15 +21,14 @@ export default function Home() {
       <h1>taylor ferran</h1>
 
         <b>about</b>
-          <p>I'm living in Belfast, Northern Ireland.</p>
-          <p>I like decentralisation, Dota 2, and dope traditional blackwork tattoos.</p>
+          <p>Belfast, Northern Ireland</p>
+          <p>Dota 2/tattoo/poker/Guinness enjoyer</p>
 
           <b>current</b>
             <p>Developer Relations @ <a href="https://ssv.network/" target="_blank">ssv.network</a></p>
 
         <b>past</b>
         <p>Developer Relations @ <a href="https://etherspot.io" target="_blank">Etherspot</a></p>
-        <p>Smart contracts @ <a href="https://twitter.com/nudeclubapp" target="_blank">Nude Club</a></p>
         <p>Technical Content Creation @ <a href="https://www.metaintro.com/" target="_blank">Metaintro</a></p>
         <p>Senior Software Engineer/Scrum Lead @  <a href="https://owmobility.com/" target="_blank">Enea Openwave</a></p>
 
