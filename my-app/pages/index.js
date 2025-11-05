@@ -10,17 +10,13 @@ export default function Home() {
         <title>taylor ferran</title>
         <meta name="description" content="it's me" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300&display=swap" rel="stylesheet" />
         </Head>
 
       <main className={styles.main}>
 
-        <img src="/taylor_ethldn.jpeg" width="400" height="220.67"></img>
 
       <h1>taylor ferran</h1>
 
-        <b>about</b>
           <p>Belfast, Northern Ireland</p>
           <p>Dota 2/tattoo/poker/Guinness enjoyer</p>
 
@@ -41,6 +37,7 @@ export default function Home() {
         <a href="https://t.me/taylorferran" target="_blank">Telegram</a>
         <a href="https://discordapp.com/users/147012760394268672" target="_blank">Discord</a>
 
+        <img src="/taylor_ethldn.jpeg" width="380" height="210"></img>
       </main>
       <Analytics />
 
