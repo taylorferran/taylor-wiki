@@ -18,7 +18,7 @@ export default function Home() {
       <h1>taylor ferran</h1>
 
           <p>Belfast, Northern Ireland</p>
-          <p>Dota 2/tattoo/poker/Guinness enjoyer</p>
+          <p><a href="https://dota2ireland.com/" target="_blank">Dota 2</a><span> + tattoo + Guinness enjoyer</span></p>
 
           <b>current</b>
             <p>Developer Relations @ <a href="https://ssv.network/" target="_blank">ssv.network</a></p>
