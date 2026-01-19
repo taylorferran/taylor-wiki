@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap');
+
+:root {
+  font-family: 'Cinzel', serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+  color: #ccc;
+  background-color: #050505;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #050505;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* EDITORIAL OVERLAY */
+.editorial-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  /* Catch clicks to close */
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.editorial-overlay.visible {
+  opacity: 1;
+}
+
+.editorial-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  z-index: -1;
+}
+
+.editorial-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  /* Remove gap, use padding/margin */
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-align: center;
+  max-height: 100vh;
+  overflow-y: auto;
+  /* Allow scrolling if really needed */
+  justify-content: center;
+}
+
+.editorial-row {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  margin-bottom: 2vh;
+  /* Use margin for spacing */
+}
+
+.editorial-overlay.visible .editorial-row {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Shared styles */
+.editorial-text,
+.editorial-link {
+  font-size: 6vw;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: #ddd;
+  margin: 0;
+  padding: 0;
+  cursor: default;
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+
+  /* Flex layout for arrow alignment */
+  display: inline-flex;
+  align-items: flex-start;
+  /* Top align usually looks better with big fonts */
+  justify-content: center;
+  gap: 0.1em;
+}
+
+.editorial-link {
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.editorial-link:hover {
+  color: #8a0303;
+  -webkit-text-stroke: 1px #8a0303;
+  color: transparent;
+}
+
+/* Subtext/Role pill */
+.editorial-sub {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: transparent;
+  color: #888;
+  padding: 0;
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 0.2rem;
+  text-transform: uppercase;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.2;
+}
+
+.editorial-arrow {
+  font-size: 0.4em;
+  /* Smaller relative size */
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  /* No absolute positioning */
+  margin-top: 0.1em;
+  /* Optical tweak */
+}
+
+.editorial-link:hover .editorial-arrow {
+  opacity: 1;
+  color: #8a0303;
+}
+
+/* Mobile Tweaks */
+@media (max-width: 768px) {
+  .editorial-content {
+    padding: 2rem 0.5rem;
+    justify-content: flex-start;
+    /* Top align on mobile to avoid cut off */
+    overflow-y: scroll;
+  }
+
+  .editorial-text,
+  .editorial-link {
+    font-size: 9vw;
+    /* Reduced from 11vw */
+    line-height: 1.1;
+  }
+
+  .editorial-sub {
+    font-size: 0.8rem;
+    margin-top: 0;
+  }
+
+  .editorial-arrow {
+    font-size: 0.4em;
+    right: -0.6em;
+  }
+}
