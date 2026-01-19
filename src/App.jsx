@@ -23,7 +23,7 @@ const DATA = {
     // Current - Updated
     title: 'CURRENT',
     items: [
-      { label: 'BUILDING', sub: 'Anything & Everything', url: 'https://github.com/taylorferran' }
+      { label: 'BUILDING', sub: 'internet stuff', url: 'https://github.com/taylorferran' }
     ]
   },
   L: {
@@ -261,14 +261,15 @@ function Scene({ onLetterClick }) {
       </group>
 
       {/* LIGHTS */}
-      <ambientLight intensity={1} color="#666677" />
+      <ambientLight intensity={2} color="#888899" />
       <spotLight
-        position={isPortrait ? [-15, 0, 20] : [0, 10, 20]}
-        intensity={30}
+        position={isPortrait ? [0, 0, 25] : [0, 10, 20]}
+        intensity={isPortrait ? 80 : 40}
         color="#ffffff"
-        angle={1}
+        angle={1.2}
       />
-      <pointLight position={[0, -5, 2]} intensity={15} color="#8a0303" distance={20} />
+      <pointLight position={[0, -5, 2]} intensity={20} color="#8a0303" distance={20} />
+      {isPortrait && <pointLight position={[0, 0, 15]} intensity={40} color="#ffffff" distance={30} />}
     </>
   )
 }
