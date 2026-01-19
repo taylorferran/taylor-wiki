@@ -104,52 +104,17 @@ function EditorialOverlay({ data, onClose }) {
   )
 }
 
-const BackgroundRain = ({ count = 400 }) => {
-  const mesh = useRef()
-  const dummy = useMemo(() => new THREE.Object3D(), [])
-
-  const particles = useMemo(() => {
-    const temp = []
-    for (let i = 0; i < count; i++) {
-      temp.push({
-        x: (Math.random() - 0.5) * 60,
-        y: (Math.random() - 0.5) * 40,
-        z: -10 + (Math.random() - 0.5) * 20,
-        speed: 0.3 + Math.random() * 0.3
-      })
-    }
-    return temp
-  }, [count])
-
-  useFrame(() => {
-    if (!mesh.current) return
-    particles.forEach((p, i) => {
-      p.y -= p.speed
-      if (p.y < -20) p.y = 20
-
-      dummy.position.set(p.x, p.y, p.z)
-      dummy.scale.set(0.02, 0.8, 0.02)
-      dummy.updateMatrix()
-      mesh.current.setMatrixAt(i, dummy.matrix)
-    })
-    mesh.current.instanceMatrix.needsUpdate = true
-  })
-
-  return (
-    <instancedMesh ref={mesh} args={[null, null, count]}>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshBasicMaterial color="#666666" transparent opacity={0.2} />
-    </instancedMesh>
-  )
-}
 
 function Letter({ char, position, onLetterClick }) {
   const groupRef = useRef()
+  const materialRef = useRef()
   const [hovered, setHover] = useState(false)
 
   // Random params for "breathing"
   const seed = useMemo(() => Math.random() * 1000, [])
   const speed = useMemo(() => 0.5 + Math.random() * 0.5, [])
+  const glowSpeed = useMemo(() => 0.3 + Math.random() * 0.2, [])
+  const glowPhase = useMemo(() => Math.random() * Math.PI * 2, [])
 
   const initialVec = useMemo(() => new THREE.Vector3(...position), [position[0], position[1], position[2]])
 
@@ -168,6 +133,12 @@ function Letter({ char, position, onLetterClick }) {
     // Gentle rotation
     groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, Math.sin(t * 0.3 + seed) * 0.05, 0.05)
     groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, Math.cos(t * 0.4 + seed) * 0.05, 0.05)
+
+    // Subtle pulsing glow effect
+    if (materialRef.current && !hovered) {
+      const glowIntensity = 0.15 + Math.sin(t * glowSpeed + glowPhase) * 0.1
+      materialRef.current.emissiveIntensity = glowIntensity
+    }
   })
 
   useEffect(() => {
@@ -208,11 +179,12 @@ function Letter({ char, position, onLetterClick }) {
           >
             {char}
             <meshStandardMaterial
-              color={hovered ? "#ff5555" : "#e0e0e0"} // BRIGHTER STONE
-              emissive={hovered ? "#550000" : "#222222"}
-              emissiveIntensity={hovered ? 0.6 : 0.1}
-              metalness={0.6} // Wet look
-              roughness={0.2} // Wet look
+              ref={materialRef}
+              color={hovered ? "#ff5555" : "#e0e0e0"}
+              emissive={hovered ? "#550000" : "#333333"}
+              emissiveIntensity={hovered ? 0.6 : 0.15}
+              metalness={0.6}
+              roughness={0.2}
             />
           </Text3D>
         </Center>
@@ -234,8 +206,6 @@ function Scene({ onLetterClick }) {
 
   return (
     <>
-      <BackgroundRain count={400} />
-
       {/* TEXT */}
       <group position={[0, 0, 0]} scale={scale}>
         {letters.map((letter, i) => {
