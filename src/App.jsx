@@ -23,7 +23,8 @@ const DATA = {
     // Current - Updated
     title: 'CURRENT',
     items: [
-      { label: 'BUILDING', sub: 'internet stuff', url: 'https://github.com/taylorferran' }
+      { label: 'MENTIONED', sub: 'prediction market', url: 'https://mentioned.market' },
+      { label: 'CRUMB', sub: 'agentic payments', url: 'https://www.crumb.finance/' }
     ]
   },
   L: {
