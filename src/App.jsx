@@ -8,7 +8,7 @@ const DATA = {
   T: {
     // Location
     items: [
-      { label: 'BELFAST', sub: 'Northern Ireland', url: null }
+      { label: 'BELFAST', sub: 'Northern Ireland', url: '/belfast' }
     ]
   },
   A: {
@@ -86,10 +86,15 @@ function EditorialOverlay({ data, onClose }) {
         {data.items.map((item, i) => (
           <div key={i} className="editorial-row" style={{ transitionDelay: `${i * 0.1}s` }}>
             {item.url ? (
-              <a href={item.url} target="_blank" rel="noopener noreferrer" className="editorial-link">
+              <a
+                href={item.url}
+                target={item.url.startsWith('http') ? '_blank' : '_self'}
+                rel={item.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="editorial-link"
+              >
                 {item.label}
                 {item.sub && <span className="editorial-sub">{item.sub}</span>}
-                <span className="editorial-arrow">↗</span>
+                <span className="editorial-arrow">{item.url.startsWith('http') ? '↗' : '→'}</span>
               </a>
             ) : (
               <span className="editorial-text">
