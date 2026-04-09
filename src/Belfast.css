@@ -241,6 +241,21 @@
   margin-top: 0.2rem;
 }
 
+.popup-maps-link {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  color: #666;
+  text-decoration: none;
+  font-family: sans-serif;
+  transition: color 0.2s;
+}
+
+.popup-maps-link:hover {
+  color: #aaa;
+}
+
 /* --- Sidebar --- */
 .belfast-sidebar {
   width: 260px;
@@ -294,16 +309,13 @@
 
 .sidebar-item {
   display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
+  align-items: center;
   width: 100%;
-  padding: 0.35rem 1rem;
+  padding: 0 1rem 0 0;
   background: none;
   border: none;
-  cursor: pointer;
-  text-align: left;
-  transition: background 0.15s;
   border-left: 2px solid transparent;
+  transition: background 0.15s;
 }
 
 .sidebar-item:hover {
@@ -313,6 +325,32 @@
 .sidebar-item.active {
   background: rgba(255, 255, 255, 0.05);
   border-left-color: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-item-btn {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex: 1;
+  padding: 0.35rem 0.5rem 0.35rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar-maps-link {
+  flex-shrink: 0;
+  font-size: 0.65rem;
+  color: #444;
+  text-decoration: none;
+  padding: 0.35rem 0.4rem;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.sidebar-maps-link:hover {
+  color: #aaa;
 }
 
 .sidebar-dot {

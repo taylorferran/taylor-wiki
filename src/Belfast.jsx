@@ -179,6 +179,14 @@ export default function Belfast() {
                       <div className="popup-name">{place.name}</div>
                       {place.note && <div className="popup-note">{place.note}</div>}
                       <div className="popup-cat">{CATEGORY_LABELS[place.category]}</div>
+                      <a
+                        className="popup-maps-link"
+                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.name + ' Belfast')}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Open in Maps ↗
+                      </a>
                     </div>
                   </div>
                 </Popup>
@@ -199,20 +207,27 @@ export default function Belfast() {
                   {CATEGORY_LABELS[catId]}
                 </div>
                 {places.map((place, i) => (
-                  <button
-                    key={i}
-                    className={`sidebar-item ${activePlace?.name === place.name ? 'active' : ''}`}
-                    onClick={() => handlePlaceClick(place)}
-                  >
-                    <span
-                      className="sidebar-dot"
-                      style={{ background: CATEGORY_COLORS[place.category] }}
-                    />
-                    <span className="sidebar-name">{place.name}</span>
-                    {place.note && (
-                      <span className="sidebar-note">{place.note}</span>
-                    )}
-                  </button>
+                  <div key={i} className={`sidebar-item ${activePlace?.name === place.name ? 'active' : ''}`}>
+                    <button className="sidebar-item-btn" onClick={() => handlePlaceClick(place)}>
+                      <span
+                        className="sidebar-dot"
+                        style={{ background: CATEGORY_COLORS[place.category] }}
+                      />
+                      <span className="sidebar-name">{place.name}</span>
+                      {place.note && (
+                        <span className="sidebar-note">{place.note}</span>
+                      )}
+                    </button>
+                    <a
+                      className="sidebar-maps-link"
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.name + ' Belfast')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Open in Google Maps"
+                    >
+                      ↗
+                    </a>
+                  </div>
                 ))}
               </div>
             ))}
