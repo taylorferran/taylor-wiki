@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet'
 import { useNavigate } from 'react-router-dom'
 import 'leaflet/dist/leaflet.css'
@@ -45,8 +45,16 @@ const PLACES = [
   { name: 'The Spaniard', category: 'bars', lat: 54.600982, lng: -5.926335 },
   { name: "Bert's Jazz Bar", category: 'bars', lat: 54.600743, lng: -5.926000 },
   { name: 'Ulster Sports Club', category: 'bars', lat: 54.600743, lng: -5.925134 },
+  { name: 'Bullhouse East', category: 'bars', lat: 54.597851, lng: -5.889455 },
+  { name: 'The Jeggy Nettle', category: 'bars', lat: 54.580800, lng: -5.937000 },
+  { name: 'The Botanic Inn', category: 'bars', lat: 54.581037, lng: -5.938483 },
+  { name: 'The Parlour', category: 'bars', lat: 54.584800, lng: -5.934800 },
+  { name: 'The Empire', category: 'bars', lat: 54.588800, lng: -5.933200 },
+  { name: 'The Morning Star', category: 'bars', lat: 54.599100, lng: -5.927200 },           // 17–19 Pottingers Entry                 // 42 Botanic Avenue                // 2–4 Elmwood Avenue            // 23–27 Malone Road          // 12 Stranmillis Road             // 442–446 Newtownards Road
 
   // Brunch
+  { name: 'Maggie Mays', category: 'brunch', lat: 54.580500, lng: -5.935000 },              // 2 Malone Road
+  { name: 'Stereo', category: 'brunch', lat: 54.5855092, lng: -5.899177 },                 // 18 Cregagh Road
   { name: 'The Pocket', category: 'brunch', lat: 54.598707, lng: -5.924413 },
   { name: 'Harlem Cafe', category: 'brunch', lat: 54.594419, lng: -5.931041 },
   { name: 'General Merchants', category: 'brunch', lat: 54.578556, lng: -5.919525 },
@@ -56,6 +64,10 @@ const PLACES = [
   { name: 'Toto', category: 'brunch', lat: 54.589522, lng: -5.932480, note: 'dim sum' },
 
   // Lunch
+  { name: 'Hero', category: 'lunch', lat: 54.603500, lng: -5.929800 },                     // 54 York St
+  { name: 'Bunsen', category: 'lunch', lat: 54.587400, lng: -5.932600 },                    // 78–80 Botanic Avenue
+  { name: 'Madame Pho', category: 'lunch', lat: 54.588917, lng: -5.933558 },               // 17 Botanic Avenue
+  { name: 'Umi Falafel', category: 'lunch', lat: 54.5864, lng: -5.9310 },                  // 36 Botanic Avenue
   { name: 'Boojum', category: 'lunch', lat: 54.595340, lng: -5.934310 },
   { name: 'Bao Bun', category: 'lunch', lat: 54.587870, lng: -5.932730 },
   { name: 'Poke Shack', category: 'lunch', lat: 54.587202, lng: -5.932365 },
@@ -65,12 +77,17 @@ const PLACES = [
   { name: 'Same Happy', category: 'dinner', lat: 54.589893, lng: -5.931672, note: 'Hong Kong BBQ' },
   { name: 'EDO', category: 'dinner', lat: 54.596775, lng: -5.933487, note: 'boujee tapas' },
   { name: 'Mourne Seafood Bar', category: 'dinner', lat: 54.599543, lng: -5.932380 },
-  { name: 'Orto', category: 'dinner', lat: 54.593796, lng: -5.931160, note: 'pizza' },
+  { name: 'Orto', category: 'dinner', lat: 54.581500, lng: -5.936500, note: 'pizza' },      // 11a Stranmillis Road
   { name: 'Bo Tree Kitchen', category: 'dinner', lat: 54.585932, lng: -5.931912, note: 'Thai' },
   { name: 'India Gate', category: 'dinner', lat: 54.592148, lng: -5.934368 },
   { name: 'Ox', category: 'dinner', lat: 54.598200, lng: -5.924100 },
+  { name: 'Jumon', category: 'dinner', lat: 54.598200, lng: -5.931800 },                    // Fountain Street, city centre
+  { name: "Darcy's", category: 'dinner', lat: 54.589000, lng: -5.934100 },                  // 10 Bradbury Place
+  { name: 'Kanagawa', category: 'dinner', lat: 54.589847, lng: -5.929617, note: 'sushi/ramen' }, // 69 Donegall Pass
 
   // Coffee
+  { name: 'Oh Donuts', category: 'coffee', lat: 54.596900, lng: -5.929500, note: 'donuts' }, // 55 Upper Arthur Street
+  { name: 'Blue Train Café & Depot', category: 'coffee', lat: 54.591500, lng: -5.933800 }, // 50 University Street
   { name: 'Established Coffee', category: 'coffee', lat: 54.602780, lng: -5.927294 },
   { name: 'Napoleon Coffee', category: 'coffee', lat: 54.592569, lng: -5.928898 },
   { name: 'Hustle', category: 'coffee', lat: 54.600307, lng: -5.929633 },
@@ -88,12 +105,25 @@ function MapFlyTo({ place }) {
   return null
 }
 
+function MapOpenPopup({ target, markerRefs }) {
+  useEffect(() => {
+    if (!target) return
+    const timer = setTimeout(() => {
+      markerRefs.current[target.place.name]?.openPopup()
+    }, 850)
+    return () => clearTimeout(timer)
+  }, [target])
+  return null
+}
+
 export default function Belfast() {
   const navigate = useNavigate()
   const [activeCategory, setActiveCategory] = useState('all')
   const [activePlace, setActivePlace] = useState(null)
+  const [openPopupFor, setOpenPopupFor] = useState(null)
   const [listOpen, setListOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768)
+  const markerRefs = useRef({})
 
   useEffect(() => {
     const handler = () => setIsMobile(window.innerWidth < 768)
@@ -118,6 +148,7 @@ export default function Belfast() {
 
   const handleListItemClick = (place) => {
     setActivePlace(place)
+    setOpenPopupFor({ place, id: Date.now() })
     setListOpen(false)
   }
 
@@ -171,9 +202,11 @@ export default function Belfast() {
               url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
             />
             <MapFlyTo place={activePlace} />
+            <MapOpenPopup target={openPopupFor} markerRefs={markerRefs} />
             {filtered.map((place, i) => (
               <CircleMarker
                 key={`${place.name}-${i}`}
+                ref={el => { if (el) markerRefs.current[place.name] = el }}
                 center={[place.lat, place.lng]}
                 radius={activePlace?.name === place.name ? (isMobile ? 14 : 11) : (isMobile ? 10 : 8)}
                 fillColor={CATEGORY_COLORS[place.category]}
