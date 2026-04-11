@@ -50,7 +50,9 @@ const PLACES = [
   { name: 'The Botanic Inn', category: 'bars', lat: 54.581037, lng: -5.938483 },
   { name: 'The Parlour', category: 'bars', lat: 54.584800, lng: -5.934800 },
   { name: 'The Empire', category: 'bars', lat: 54.588800, lng: -5.933200 },
-  { name: 'The Morning Star', category: 'bars', lat: 54.599100, lng: -5.927200 },           // 17–19 Pottingers Entry                 // 42 Botanic Avenue                // 2–4 Elmwood Avenue            // 23–27 Malone Road          // 12 Stranmillis Road             // 442–446 Newtownards Road
+  { name: 'The Morning Star', category: 'bars', lat: 54.599100, lng: -5.927200 },
+  { name: "Kelly's Cellars", category: 'bars', lat: 54.599000, lng: -5.932000 },            // 30–32 Bank Street
+  { name: "Madden's", category: 'bars', lat: 54.599600, lng: -5.933100 },                   // 74 Berry Street           // 17–19 Pottingers Entry                 // 42 Botanic Avenue                // 2–4 Elmwood Avenue            // 23–27 Malone Road          // 12 Stranmillis Road             // 442–446 Newtownards Road
 
   // Brunch
   { name: 'Maggie Mays', category: 'brunch', lat: 54.580500, lng: -5.935000 },              // 2 Malone Road
