@@ -23,8 +23,7 @@ const DATA = {
     // Current - Updated
     title: 'CURRENT',
     items: [
-      { label: 'MENTIONED', sub: 'prediction market', url: 'https://mentioned.market' },
-      { label: 'CRUMB', sub: 'agentic payments', url: 'https://www.crumb.finance/' }
+      { label: 'MENTIONED', sub: 'prediction market', url: 'https://mentioned.market' }
     ]
   },
   L: {
